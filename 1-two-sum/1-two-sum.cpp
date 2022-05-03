@@ -1,24 +1,21 @@
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
-        vector<int> result;     
-        unordered_multimap<int, int> myMap;
+        vector<int> result(2, 0);
+        unordered_multimap<int, int> hmap;
         
-        for(int i = 0; i < nums.size(); i++)
-        {
-            int rem = target - nums[i];
+        for (int i =0; i < nums.size(); i++) {
+            int secondNum = target - nums[i];
             
-            unordered_multimap<int, int>::iterator it = myMap.find(rem);
-            
-            if((it != myMap.end()) && (it->second != i))
-            {
-                result.push_back(i);
-                result.push_back(it->second);
+            unordered_multimap<int, int>::iterator it = hmap.find(secondNum);
+            if( it != hmap.end() && it->second != i) {
+                result[0] = i;
+                result[1] = it->second;
                 return result;
-            } 
-            myMap.insert( std::pair<int, int>(nums[i], i));
+            }
+            
+            hmap.insert({nums[i], i});
         }
-        
         return result;       
     }
 };
