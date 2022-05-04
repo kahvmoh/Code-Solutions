@@ -16,12 +16,13 @@ public:
         ListNode *p1 = l1;
         ListNode *p2 = l2;
         int carry = 0;
+        int sum = 0;
         
         while( p1 != nullptr || p2 != nullptr || carry != 0)
         {                        
-            int x = ( p1 != nullptr ) ? p1->val: 0;
-            int y = ( p2 != nullptr ) ? p2->val: 0;
-            int sum = x + y + carry;            
+            sum = ( p1 != nullptr ) ? p1->val: 0;
+            sum += ( p2 != nullptr ) ? p2->val: 0;
+            sum += carry;            
             carry = sum / 10;
             sum %= 10;
             cur->next = new ListNode( sum );
