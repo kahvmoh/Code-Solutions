@@ -17,7 +17,7 @@ public:
         ListNode *p2 = l2;
         int carry = 0;
         
-        while( p1 != nullptr || p2 != nullptr)
+        while( p1 != nullptr || p2 != nullptr || carry != 0)
         {                        
             int x = ( p1 != nullptr ) ? p1->val: 0;
             int y = ( p2 != nullptr ) ? p2->val: 0;
@@ -29,11 +29,6 @@ public:
             if(p1 != nullptr) p1 = p1->next;
             if(p2 != nullptr) p2 = p2->next;
         }    
-        
-        if(carry > 0)
-        {
-            cur->next = new ListNode( carry);
-        } 
         
         return hd->next;        
     }
