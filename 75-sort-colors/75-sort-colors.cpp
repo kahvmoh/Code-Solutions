@@ -1,21 +1,23 @@
 class Solution {
 public:
     void sortColors(vector<int>& nums) {
-        int p0, p1, p2;
+        int red, cur, blue;
         
-    p0 = p1 = 0;
-    // for all idx > p2 : nums[idx > p2] = 2
-    p2 = nums.size() - 1;
-
-    while (p1 <= p2) {
-        if (nums[p1] == 0) {
-            swap(nums[p1++], nums[p0++]);
+        red = cur = 0;
+        blue = nums.size() - 1;
+        
+        while( cur <= blue ) {
+            if ( nums[cur] == 0 )
+                // this is Red
+                swap(nums[cur++], nums[red++]);
+            else if ( nums[cur] == 1)
+                // This is White
+                cur++;
+            else
+                // this is Blue
+                swap(nums[cur], nums[blue--]);
+                
         }
-        else if (nums[p1] == 2) {
-            swap(nums[p1], nums[p2--]);
-        }
-        else p1++;
-    }
         
     }
 };
