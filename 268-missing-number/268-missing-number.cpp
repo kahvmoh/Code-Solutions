@@ -1,15 +1,23 @@
 class Solution {
 public:
     int missingNumber(vector<int>& nums) {
+        int n = nums.size();
         
-        int len = nums.size();
-        int total = ( (len * ( len + 1 )) / 2);
-        
-        int sum = 0;
+        for( int i = 0; i < n; i++ ) {
+            while (nums[i] != i) {
+                int d = nums[i];
+                if (nums[i] < n)
+                    swap( nums[i], nums[d]);
+                else
+                    break;
+            }
+        }
             
-        for (auto i : nums)  sum += i;
-        
-        return (total - sum);
-            
+        for( int i = 0; i < n; i++ ) {
+            if(nums[i] == n)
+                return i;
+        }
+         
+        return n;
     }
 };
