@@ -29,15 +29,6 @@ public:
             }        
         }
         
-        /*
-        slow = head;
-        while (slow != fast) {
-            slow = slow->next;
-        }
-        
-        std::cout << "The node that starts the cycle is: " << slow->val << std::endl;
-        */
-        
         return true;
     }
 };
