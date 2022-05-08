@@ -13,22 +13,17 @@ public:
         if (!head)
             return false;
         
-        ListNode *slow = head, *fast = nullptr;
-        if(slow && slow->next) {
-            fast = slow->next->next;
-        }
+        ListNode *slow = head;
+        ListNode *fast = head;
         
-        while (slow != fast) {
+        while(fast->next && fast->next->next) {
             slow = slow->next;
-            if (fast && fast->next) {
-                fast = fast->next->next;
-            }
-            else
-            {
-                return false;
-            }        
+            fast = fast->next->next;
+            
+            if( slow == fast )
+                return true;
         }
         
-        return true;
+        return false;
     }
 };
