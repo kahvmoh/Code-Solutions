@@ -2,12 +2,12 @@ class Solution {
 public:
     int numOfSubarrays(vector<int>& arr) {
         long total = 0;
-        long hmap[2];
+        int hmap[2];
         // keep track of even prefixSum
         hmap[0] = 1;
         // keep track of odd prefixSum
         hmap[1] = 0;
-        long pSum = 0;
+        int pSum = 0;
         for( int i = 0; i < arr.size(); i++ ) {
             pSum += arr[i];
             
