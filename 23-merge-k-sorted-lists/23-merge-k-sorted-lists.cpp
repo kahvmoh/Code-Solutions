@@ -14,9 +14,9 @@ class Solution {
     class myComparator
     {
         public:
-        int operator() (const pair<int, ListNode *>& n1, const pair<int, ListNode *>& n2)
+        int operator() (const pair<int, ListNode *>& lhs, const pair<int, ListNode *>& rhs)
         {
-            return n1.second->val > n2.second->val;
+            return lhs.second->val > rhs.second->val;
         }   
     };
     
@@ -27,7 +27,6 @@ class Solution {
         ListNode *tail = sentinal;
             
         priority_queue < pair<int, ListNode*>, vector<pair<int, ListNode *>>, myComparator >  myMaxHp;
-        // priority_queue < pair<int, ListNode*>, std::greater<int>>  myMaxHp;
         
         for(int i = 0; i < lists.size(); i++)
         {
