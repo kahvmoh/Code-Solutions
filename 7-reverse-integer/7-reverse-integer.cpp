@@ -14,7 +14,7 @@ public:
                  return 0;
             else
                 result = 10 * result + rem;
-        }   
+        }  
         
         return result;
     }
