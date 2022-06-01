@@ -54,43 +54,44 @@ public:
 class LRUCache {
 public:
     int curr_size, max_size;    // to track the size of the cache
-    vector<LLNode*> node_addr;  // hash table
+    unordered_map<int , LLNode*> node_hmap;  // hash table
     doublyLinkedList list;      // doubly linked list to store the data and preserve the order with respect to access time
     
-    LRUCache(int capacity) : node_addr(10001, NULL) {
+    LRUCache(int capacity) {
         max_size = capacity;
         curr_size = 0;
     }
     
     int get(int key) {
         // check for key in the hash table
-        if(node_addr[key] == NULL) return -1;
+        if(node_hmap.find(key) == node_hmap.end()) 
+            return -1;
         
         // key is there
-        list.moveToTail(node_addr[key]);    // move the node to the end of list
-        return node_addr[key]->val;         // return tha value
+        list.moveToTail(node_hmap[key]);    // move the node to the end of list
+        return node_hmap[key]->val;         // return tha value
     }
     
     void put(int key, int value) {
         // key is present
-        if(node_addr[key] != NULL){
-            list.moveToTail(node_addr[key]);    // move the node to the end of list    
-            node_addr[key]->val = value;        // update the value
+        if(node_hmap.find(key) != node_hmap.end()){
+            list.moveToTail(node_hmap[key]);    // move the node to the end of list    
+            node_hmap[key]->val = value;        // update the value
             return;
         }
         
         // reached to max size
         if(curr_size == max_size){
             int key = list.head->next->key;
-			list.remove(node_addr[key]);        // evict the least recently used, which is the first data item
+			list.remove(node_hmap[key]);        // evict the least recently used, which is the first data item
 												// (REMINDER: data items starts from head->next onwards)         
-			node_addr[key] = NULL;              // mark the entry as invalid in hash table
+			node_hmap.erase(key);               // mark the entry as invalid in hash table
             curr_size--;
         }
         
         curr_size++;                        // increase the size
         list.addToTail(key, value);         // add the new (key, value) to list
-        node_addr[key] = list.tail;         // add the corresponding entry in hash table
+        node_hmap[key] = list.tail;         // add the corresponding entry in hash table
     }
 };
 
