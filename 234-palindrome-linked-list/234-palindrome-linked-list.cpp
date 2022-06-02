@@ -40,9 +40,11 @@ public:
         pred = NULL;
         
         while( cur ) {
+            // Is the list a plindrome?
             if( left->val != cur->val )
                 result = false;
             left = left->next;
+            // reverse the list
             succ = cur->next;
             cur->next = pred;
             pred = cur;
