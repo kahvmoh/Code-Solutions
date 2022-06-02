@@ -43,12 +43,12 @@ public:
           tail->next = l1;
           tail = l1;
           l1 = l1->next;
-          tail->next = NULL;
+          //tail->next = NULL;
           
           tail->next = l2;
           tail = l2;
           l2 = l2->next;
-          tail->next = NULL;
+          //tail->next = NULL;
       }
         
       tail->next = l1;
