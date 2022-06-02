@@ -20,6 +20,7 @@ public:
             cur = cur->next;
             index++;
         }
+        
         ListNode *left_tail = prev;
         ListNode *middle_tail = cur;
         
@@ -40,6 +41,8 @@ public:
         left_tail->next = middle_head;
         middle_tail->next = right_head;
         
-        return sentinal->next;    
+        ListNode *result = sentinal->next;
+        delete sentinal;
+        return result;    
     }
 };
