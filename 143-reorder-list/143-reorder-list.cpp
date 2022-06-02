@@ -52,6 +52,7 @@ public:
       }
         
       tail->next = l1;
+      delete sentinal;
         
     }
 };
