@@ -21,18 +21,18 @@ public:
         
         while( !q.empty() ) {
             int lSize = q.size();
-            std::vector<int> thisLevel(0, lSize);
+            int rightMost = 0;
             
             for(int i = 0; i < lSize; i++) {
                 TreeNode *tmp = q.front();
                 q.pop();
-                thisLevel.push_back(tmp->val);
+                rightMost = tmp->val;
                 if ( tmp->left )
                     q.push(tmp->left);
                 if ( tmp->right )
                     q.push(tmp->right);
             }
-            result.push_back(thisLevel.back());
+            result.push_back(rightMost);
         }
         return result;    
     }
