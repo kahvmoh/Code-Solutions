@@ -12,17 +12,29 @@
 class Solution {
 public:
     bool isUnivalTree(TreeNode* root) {
-        if( !root )
-            return true;
-        if( root->left && root->val != root->left->val )
-            return false;
-        if( root->right && root->val != root->right->val )
-            return false;
-        if( isUnivalTree(root->left) != true )
-            return false;
-        if( isUnivalTree(root->right) != true )
-            return false;
+
+        if (!root)
+            return {};
+
+        std::queue<TreeNode *> myQ;
+        myQ.push(root);
         
+        int rootVal = root->val;
+
+        while (myQ.empty() != true)
+        {
+            TreeNode *node = myQ.front();
+            myQ.pop();
+            
+            if( node->val != rootVal )
+                return false;
+            
+            if(node->left)
+                myQ.push(node->left);
+            if(node->right)
+                myQ.push(node->right);
+        }
+
         return true;
     }
 };
