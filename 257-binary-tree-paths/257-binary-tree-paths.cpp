@@ -18,7 +18,6 @@ public:
 
         if( !node->left && !node->right ) {
             res.push_back(slate);
-            return;
         }
             
         if( node->left )
