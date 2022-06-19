@@ -14,7 +14,7 @@ public:
         }
         
         //get the right most bit that is set
-        mask = xorAll & ~(xorAll - 1);
+        mask = xorAll & -xorAll; //~(xorAll - 1);
         
         int num1 = 0, num2 = 0;
 
