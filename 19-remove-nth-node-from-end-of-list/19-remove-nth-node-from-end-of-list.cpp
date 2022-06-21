@@ -27,6 +27,8 @@ public:
         
         prev->next = cur->next;
         head = sentinal->next;
+        delete cur;
+        delete sentinal;
         return head;
     }
 };
