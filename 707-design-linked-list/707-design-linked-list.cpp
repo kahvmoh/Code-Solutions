@@ -3,12 +3,7 @@ public:
     int val;
     Node *next;
 
-    Node() {
-        val = 0;
-        next = nullptr;
-    }
-
-    Node(int x) {
+    Node(int x = 0) {
         val = x;
         next = nullptr;
     }
