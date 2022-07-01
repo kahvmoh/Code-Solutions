@@ -89,7 +89,7 @@ public:
             delete(temp);
         }
         // remove the tail
-        else if (index == size - 1) {
+        /*else if (index == size - 1) {
             Node *temp = head;
             //find the node before tail
             while(temp->next != tail) {
@@ -97,7 +97,7 @@ public:
             }
             delete(tail);
             tail = temp;
-        }
+        } */
         else {
             Node *temp = head;
             Node *prev = nullptr;
@@ -106,6 +106,8 @@ public:
                 temp = temp->next;
             }
             prev->next = temp->next;
+            if( temp == tail )
+                tail = prev;
             delete(temp);
         }
         size--;
