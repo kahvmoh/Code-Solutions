@@ -5,24 +5,24 @@ public:
         if(nums.empty())
             return -1;
         
-        int l = 0; 
-        int r = nums.size() -1;
+        int start = 0; 
+        int end = nums.size() -1;
         int mid;
-        while(l <= r)
+        while(start <= end)
         {
-            mid = (l + r) / 2;
+            mid = start + ((end - start) / 2);
             if( nums[mid] == target)
                 return mid;
             else if( nums[mid] < target)
             {    
-                l = mid + 1;
+                start = mid + 1;
             }
             else
             {
-                r = mid - 1;
+                end = mid - 1;
             }          
         }    
             
-        return l;
+        return start;
     }
 };
