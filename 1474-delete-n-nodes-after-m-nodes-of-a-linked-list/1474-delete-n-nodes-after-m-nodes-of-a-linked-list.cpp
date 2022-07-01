@@ -21,8 +21,11 @@ public:
                 cur = cur->next;
             }
             
-            for ( int i = 0; i < n && cur; i++)
+            for ( int i = 0; i < n && cur; i++) {
+                ListNode *temp = cur;
                 cur = cur->next;
+                delete temp;
+            }    
             prev->next = cur;
         }
         
