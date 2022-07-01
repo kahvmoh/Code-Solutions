@@ -16,10 +16,12 @@ public:
         ListNode *cur = head;
         
         while ( cur )  {
-            if( prev->val == cur->val) {
+            if(prev->val == cur->val) {
                 // delete  the next dup
                 prev->next = cur->next;
+                ListNode *temp = cur;
                 cur = cur->next;
+                delete temp;
             }
             else {
                 // move to the next node
