@@ -14,6 +14,7 @@ public:
     Node *head;
     Node *tail;
     int size;
+    
     MyLinkedList() {
         head = nullptr;
         tail = nullptr;
@@ -43,7 +44,7 @@ public:
     
     void addAtTail(int val) {
         Node *newTail = new Node(val);
-        if (!head && !tail) {
+        if (!tail) {
             head = newTail;
             tail = newTail;
         }
@@ -57,10 +58,12 @@ public:
     void addAtIndex(int index, int val) {
         if (index > size) 
             return;
+        // add before the head
         if (index == 0) {
             addAtHead(val);
             return;
         }
+        // add after the tail
         if (index == size) {
             addAtTail(val);
             return;
@@ -79,11 +82,13 @@ public:
     void deleteAtIndex(int index) {
         if (index >= size) 
             return;
+        // remove the head
         if (index == 0) {
             Node *temp = head;
             head = head->next;
             delete(temp);
         }
+        // remove the tail
         else if (index == size - 1) {
             Node *temp = head;
             //find the node before tail
