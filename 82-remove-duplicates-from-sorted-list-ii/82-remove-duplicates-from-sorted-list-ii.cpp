@@ -18,8 +18,13 @@ public:
         while( cur ) {
             if( cur->next && cur->val == cur->next->val ) {
                 ListNode *p = cur->next;
-                while( p && p->val == cur->val)
+                int dupVal = cur->val;
+                delete cur;
+                while( p && p->val == dupVal) {
+                    ListNode *temp = p;
                     p = p->next;
+                    delete temp;
+                }    
                 prev->next = p;
                 cur = p;
             }
