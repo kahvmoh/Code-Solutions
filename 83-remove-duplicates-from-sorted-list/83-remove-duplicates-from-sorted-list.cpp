@@ -29,6 +29,7 @@ public:
         }
         
         head = sentinal->next;
+        delete sentinal;
         return head;
     }
 };
