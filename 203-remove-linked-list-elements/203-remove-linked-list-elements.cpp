@@ -24,7 +24,9 @@ public:
                cur = cur->next;
            }
        } 
-        head = sentinal->next;
-        return head;
+        
+       head = sentinal->next;
+       delete sentinal;
+       return head;
     }
 };
