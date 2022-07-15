@@ -16,8 +16,10 @@ public:
        ListNode *cur = head;
        while( cur ) {
            if( cur->val == val ) {
+               ListNode *tmp = cur;
                prev->next = cur->next;
                cur = cur->next;
+               delete tmp;
            }
            else {
                prev = cur;
