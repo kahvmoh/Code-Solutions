@@ -23,9 +23,10 @@ class Solution(object):
         
         while start <= end:
             mid = start + (end - start) / 2
-            if reader.get(mid) == target:
+            midVal = reader.get(mid)
+            if midVal == target:
                 return mid
-            elif reader.get(mid) < target:
+            elif midVal < target:
                 start = mid + 1
             else:
                 end = mid - 1
