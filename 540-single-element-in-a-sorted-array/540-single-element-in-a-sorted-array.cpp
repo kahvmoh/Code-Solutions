@@ -15,7 +15,6 @@ public:
         while( start <= end )
         {
             int mid = start + ((end - start) / 2);
-            cout << "mid = " << mid << endl;
             
             if( (nums[mid] != nums[mid-1]) && (nums[mid] != nums[mid+1]))
                 return nums[mid];
