@@ -27,8 +27,6 @@ class Solution(object):
                     q.append(node.right)
                 if node.left is None and node.right is None:
                     return minDepth
-
-        return minDepth
                 
             
             
