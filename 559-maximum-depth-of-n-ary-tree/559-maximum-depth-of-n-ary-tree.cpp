@@ -21,21 +21,24 @@ public:
 class Solution {
 public:
     int maxDepth(Node* root) {
-        if (!root)
+
+        if( !root )
             return 0;
         int level = 0;
         std::queue<Node *> q;
         q.push(root);
         
-        while(q.empty() == false) {
-            level++;
-            int numNode = q.size();
-            for(int i = 0; i < numNode; i++) {
-                Node *tmpNode = q.front();
+        while( !q.empty() )
+        {
+            int len = q.size();
+            level += 1;
+            for( int i = 0; i < len; i++)
+            {
+                Node *node = q.front();
                 q.pop();
-                for( int j = 0; j < tmpNode->children.size(); j++)
-                     q.push(tmpNode->children[j]);
-            }  
+                for(auto child : node->children)
+                    q.push(child);
+            }
         }
         return level;
     }
