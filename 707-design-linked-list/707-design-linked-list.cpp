@@ -88,27 +88,17 @@ public:
             head = head->next;
             delete(temp);
         }
-        // remove the tail
-        /*else if (index == size - 1) {
-            Node *temp = head;
-            //find the node before tail
-            while(temp->next != tail) {
-                temp = temp->next;
-            }
-            delete(tail);
-            tail = temp;
-        } */
         else {
-            Node *temp = head;
+            Node *cur = head;
             Node *prev = nullptr;
             for (int i = 0; i < index; i++) {
-                prev = temp;
-                temp = temp->next;
+                prev = cur;
+                cur = cur->next;
             }
-            prev->next = temp->next;
-            if( temp == tail )
+            prev->next = cur->next;
+            if( cur == tail )
                 tail = prev;
-            delete(temp);
+            delete(cur);
         }
         size--;
     }
