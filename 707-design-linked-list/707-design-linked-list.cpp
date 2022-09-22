@@ -25,11 +25,11 @@ public:
         if (index >= size) 
             return -1;
         
-        Node *temp = head;
+        Node *cur = head;
         for (int i = 0; i < index; i++) {
-            temp = temp->next;
+            cur = cur->next;
         }
-        return temp->val;
+        return cur->val;
     }
     
     void addAtHead(int val) {
@@ -70,12 +70,12 @@ public:
         }
 
         Node *newNode = new Node(val);
-        Node *temp = head;
+        Node *cur = head;
         for (int i = 0; i < index - 1; i++) {
-            temp = temp->next;
+            cur = cur->next;
         }
-        newNode->next = temp->next;
-        temp->next = newNode;
+        newNode->next = cur->next;
+        cur->next = newNode;
         size++;
     }
     
