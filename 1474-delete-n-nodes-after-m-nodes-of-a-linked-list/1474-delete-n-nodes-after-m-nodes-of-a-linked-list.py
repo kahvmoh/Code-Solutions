@@ -22,8 +22,8 @@ class Solution(object):
                 cur = cur.next
                 i += 1
                 
-            #if cur is None:
-            #    break;
+            if cur is None:
+                break;
                 
             j = 1
             while cur is not None and j <= n:
