@@ -16,16 +16,15 @@ class Solution(object):
         
         hmap = {}
         hmap[0] = True
-        PSumOld = nums[0]
         pSum = nums[0]
         
         for i in range(1, len(nums)):
-            pSumOld = pSum
+            oldSum = pSum
             pSum = (pSum + nums[i]) % k
             
             if pSum in hmap:
                 return True
-            hmap[pSumOld % k] = True
+            hmap[oldSum % k] = True
         
         return False
         
