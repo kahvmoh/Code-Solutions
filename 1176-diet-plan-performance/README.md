@@ -13,7 +13,7 @@
 <p>Note that the total points can be negative.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre><strong>Input:</strong> calories = [1,2,3,4,5], k = 1, lower = 3, upper = 3
 <strong>Output:</strong> 0
@@ -22,7 +22,7 @@ calories[0] and calories[1] are less than lower so 2 points are lost.
 calories[3] and calories[4] are greater than upper so 2 points are gained.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre><strong>Input:</strong> calories = [3,2], k = 2, lower = 0, upper = 1
 <strong>Output:</strong> 1
@@ -30,7 +30,7 @@ calories[3] and calories[4] are greater than upper so 2 points are gained.
 calories[0] + calories[1] &gt; upper so 1 point is gained.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre><strong>Input:</strong> calories = [6,5,0,0], k = 2, lower = 1, upper = 5
 <strong>Output:</strong> 0
